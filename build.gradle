@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+checkstyle {
+    toolVersion = '10.12.5'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release.set(21)
+}
